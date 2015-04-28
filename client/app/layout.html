@@ -1,0 +1,70 @@
+<template name="appLayout">
+    {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+        {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+        {{else}}
+        {{> ionIcon icon='navicon'}}
+        {{/if}}
+    </button>
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Werk aan je lijf!</h1>
+    <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+        {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+        {{else}}
+        {{> ionIcon icon='navicon'}}
+        {{/if}}
+    </button>
+    {{/contentFor}}
+
+    <div id="app">
+    {{#ionBody}}
+        {{#ionSideMenuContainer}}
+            {{#ionSideMenus}}
+                {{#ionSideMenu}}
+                <div class="bar bar-header bar-dark">
+                    <h1 class="title">Instellingen</h1>
+                </div>
+                <div class="content has-header">
+                    <div class="list">
+                        <div class="item item-icon-right" data-ion-menu-close>
+                            Sluiten {{> ionIcon icon="ios-arrow-right"}}
+                        </div>
+                    </div>
+                </div>
+                {{/ionSideMenu}}
+                {{#ionSideMenu side="right"}}
+                <div class="bar bar-header bar-dark">
+                    <h1 class="title">Statistieken</h1>
+                </div>
+                <div class="content has-header">
+                    <div class="list">
+                        <div class="item item-icon-left" data-ion-menu-close>
+                            {{> ionIcon icon="ios-arrow-left"}} Sluiten
+                        </div>
+                    </div>
+                </div>
+                {{/ionSideMenu}}
+            {{/ionSideMenus}}
+        {{#ionSideMenuContent}}
+
+        {{> ionNavBar class="bar-positive"}}
+
+        {{#ionNavView}}
+            {{> yield}}
+        {{/ionNavView}}
+
+        {{/ionSideMenuContent}}
+
+        {{/ionSideMenuContainer}}
+
+        {{#ionFooterBar class="bar"}}
+        <div class="title">
+
+        </div>
+        {{/ionFooterBar}}
+    {{/ionBody}}
+    </div>
+</template>

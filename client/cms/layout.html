@@ -1,0 +1,14 @@
+<template name="cmsLayout">
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Werk aan je lijf! CMS</h1>
+    {{/contentFor}}
+    <div id="cms">
+    {{#ionBody}}
+        {{> ionNavBar class="bar-positive"}}
+
+        {{#ionNavView}}
+            {{> yield}}
+        {{/ionNavView}}
+    {{/ionBody}}
+    </div>
+</template>
